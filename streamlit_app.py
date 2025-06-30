@@ -68,7 +68,13 @@ if "df" not in st.session_state:
     st.session_state.df = df
 
 
+database_path = 'foguthtradeticket.db'
+conn = sqlite3.connect(database_path)
+cursor = conn.cursor()
 
+# Fetch the list of households from the database.
+cursor.execute("SELECT householdName FROM households")
+households = [row[0] for row in cursor.fetchall()]
 
 def trade_ticket_form():
     """
