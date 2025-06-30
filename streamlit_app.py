@@ -93,10 +93,11 @@ def trade_ticket_form():
     # We're adding tickets via an `st.form` and some input widgets. If widgets are used
     # in a form, the app will only rerun once the submit button is pressed.
     with st.form("add_ticket_form"):
-        issue = st.selectbox("Household", households)
-        priority = st.selectbox("Priority", ["High", "Medium", "Low"])
-        submitted = st.form_submit_button("Submit")
-    #if submitted:
+        household = st.selectbox("Household", households)
+        
+        if household:
+            # Fetch the accounts associated with the selected household.
+            
         
 
 # Show a section to add a new ticket.
@@ -105,7 +106,7 @@ st.header("New Trade Ticket")
 # We're adding tickets via an `st.form` and some input widgets. If widgets are used
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
-    issue = st.selectbox("Household", households, placeholder="Select a household")
+    household = st.selectbox("Household", households, placeholder="Select a household")
     priority = st.selectbox("Priority", ["High", "Medium", "Low"])
     submitted = st.form_submit_button("Submit")
 
