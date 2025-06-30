@@ -95,7 +95,7 @@ def trade_ticket_form():
 
 # Show a section to add a new ticket.
 st.header("New Trade Ticket")
-households = []
+
 # We're adding tickets via an `st.form` and some input widgets. If widgets are used
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
