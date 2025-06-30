@@ -8,7 +8,7 @@ import streamlit as st
 
 # Show app title and description.
 st.set_page_config(page_title="Foguth Financial Group", page_icon="🎫")
-st.title("Foguth Financial Group 🎫 Support tickets")
+st.title("Foguth Financial Group 🎫 Trade Ticket")
 st.write(
     """
     This app shows how you can build an internal tool in Streamlit. Here, we are 
