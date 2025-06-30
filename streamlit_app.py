@@ -80,7 +80,7 @@ def trade_ticket_form():
     cursor = conn.cursor()
     
     # Fetch the list of households from the database.
-    cursor.execute("SELECT name FROM households")
+    cursor.execute("SELECT householdName FROM households")
     households = [row[0] for row in cursor.fetchall()]
     
     st.header("New Trade Ticket")
