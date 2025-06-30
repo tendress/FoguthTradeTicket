@@ -90,7 +90,7 @@ def trade_ticket_form():
         issue = st.selectbox("Household", [households])
         priority = st.selectbox("Priority", ["High", "Medium", "Low"])
         submitted = st.form_submit_button("Submit")
-    if submitted:
+    #if submitted:
         
 
 # Show a section to add a new ticket.
