@@ -1,6 +1,6 @@
 import datetime
 import random
-
+import sqlite3
 import altair as alt
 import numpy as np
 import pandas as pd
@@ -16,6 +16,9 @@ st.write(
     existing tickets, and view some statistics.
     """
 )
+
+
+
 
 # Create a random Pandas dataframe with existing tickets.
 if "df" not in st.session_state:
@@ -65,13 +68,38 @@ if "df" not in st.session_state:
     st.session_state.df = df
 
 
-# Show a section to add a new ticket.
-st.header("Add a ticket")
 
+
+def trade_ticket_form():
+    """
+    This function is used to create a form for adding a new trade ticket.
+    It includes input fields for the issue, priority, and a submit button.
+    """
+    database_path = 'foguthtradeticket.db'
+    conn = sqlite3.connect(database_path)
+    cursor = conn.cursor()
+    
+    # Fetch the list of households from the database.
+    cursor.execute("SELECT name FROM households")
+    households = [row[0] for row in cursor.fetchall()]
+    
+    st.header("New Trade Ticket")
+    # We're adding tickets via an `st.form` and some input widgets. If widgets are used
+    # in a form, the app will only rerun once the submit button is pressed.
+    with st.form("add_ticket_form"):
+        issue = st.selectbox("Household", [households])
+        priority = st.selectbox("Priority", ["High", "Medium", "Low"])
+        submitted = st.form_submit_button("Submit")
+    if submitted:
+        
+
+# Show a section to add a new ticket.
+st.header("New Trade Ticket")
+households = []
 # We're adding tickets via an `st.form` and some input widgets. If widgets are used
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
-    issue = st.text_area("Describe the issue")
+    issue = st.selectbox("Household", [])
     priority = st.selectbox("Priority", ["High", "Medium", "Low"])
     submitted = st.form_submit_button("Submit")
 
