@@ -95,9 +95,7 @@ def trade_ticket_form():
     with st.form("add_ticket_form"):
         household = st.selectbox("Household", households)
         
-        if household:
-            # Fetch the accounts associated with the selected household.
-            
+       
         
 
 # Show a section to add a new ticket.
